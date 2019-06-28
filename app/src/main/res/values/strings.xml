@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BMI</string>
+
+    <array name="spinner_options">
+        <item name="kilogram">Kilogram</item>
+        <item name="pound">Pound</item>
+    </array>
+</resources>

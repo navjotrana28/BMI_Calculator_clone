@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="160dp"
+            android:text="BMI"
+            android:textSize="25dp" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:background="#000" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/weight_Left_Layout"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/weight_measure_layout"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/weight_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:padding="25dp"
+                    android:text="Weight"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
+                    app:layout_constraintRight_toLeftOf="@+id/spinner1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout"
+                    app:layout_constraintVertical_bias="0.533" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="90dp"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
+                    app:layout_constraintRight_toRightOf="@+id/weight_Left_Layout"
+                    app:layout_constraintStart_toEndOf="@+id/weight_textview"
+                    app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout">
+
+                </Spinner>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/weight_measure_layout"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:paddingLeft="100dp"
+                app:layout_constraintLeft_toRightOf="@+id/weight_Left_Layout"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/kilogram_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="22dp"
+                    android:text="60"
+
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/kilogram_Syntax"
+                    app:layout_constraintLeft_toLeftOf="@+id/weight_measure_layout"
+                    app:layout_constraintRight_toRightOf="@+id/weight_measure_layout"
+                    app:layout_constraintTop_toTopOf="@+id/weight_measure_layout" />
+
+                <TextView
+                    android:id="@+id/kilogram_Syntax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="1dp"
+                    android:text="Kilogram"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/weight_measure_layout"
+                    app:layout_constraintLeft_toLeftOf="@+id/weight_measure_layout"
+                    app:layout_constraintRight_toRightOf="@+id/weight_measure_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/kilogram_textview" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="#000" />
+        <!--second height and centimeter-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/height_left_Layout"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/height_measure_layout"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/height_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp"
+                    android:text="Height"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/height_left_Layout"
+                    app:layout_constraintTop_toTopOf="@+id/height_left_Layout" />
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="90dp"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintBottom_toBottomOf="@+id/height_left_Layout"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toRightOf="@+id/height_textview"
+                    app:layout_constraintRight_toRightOf="@+id/height_left_Layout"
+                    app:layout_constraintTop_toTopOf="@+id/height_left_Layout">
+
+                </Spinner>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/height_measure_layout"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:paddingLeft="100dp"
+                app:layout_constraintLeft_toRightOf="@+id/height_left_Layout"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/centimeter_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="22dp"
+                    android:text="170"
+
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/centimeter_Syntax"
+                    app:layout_constraintLeft_toLeftOf="@+id/height_measure_layout"
+                    app:layout_constraintRight_toRightOf="@+id/height_measure_layout"
+                    app:layout_constraintTop_toTopOf="@+id/height_measure_layout" />
+
+                <TextView
+                    android:id="@+id/centimeter_Syntax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="1dp"
+                    android:text="centimeter"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/height_measure_layout"
+                    app:layout_constraintLeft_toLeftOf="@+id/height_measure_layout"
+                    app:layout_constraintRight_toRightOf="@+id/height_measure_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/centimeter_textview" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#000"
+            android:layout_marginBottom="50dp"/>
+
+        <GridLayout
+            android:id="@+id/grid_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:rowCount="4"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/seven"
+                style="@style/forButtons"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/eight"
+                style="@style/forButtons"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/nine"
+                style="@style/forButtons"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/AC"
+                style="@style/forButtons"
+                android:layout_gravity="fill"
+                android:text="AC" />
+
+            <Button
+                android:id="@+id/four"
+                style="@style/forButtons"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/five"
+                style="@style/forButtons"
+                android:text="5" />
+
+            <Button
+
+                android:id="@+id/six"
+                style="@style/forButtons"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/hash"
+                style="@style/forButtons"
+                android:layout_gravity="fill"
+                android:text="#" />
+
+            <Button
+                android:id="@+id/one"
+                style="@style/forButtons"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/two"
+                style="@style/forButtons"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/three"
+                style="@style/forButtons"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/go"
+                android:layout_rowSpan="2"
+                android:layout_gravity="fill"
+                android:background="@android:color/holo_orange_dark"
+                android:text="GO"
+                android:textColor="@android:color/white"
+                android:textSize="24dp" />
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_columnSpan="2"
+                android:layout_gravity="fill"
+                android:background="@android:color/white"
+                android:text="0"
+                android:textSize="24dp" />
+
+            <Button
+                android:id="@+id/dot"
+                style="@style/forButtons"
+                android:text="." />
+        </GridLayout>
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </LinearLayout>

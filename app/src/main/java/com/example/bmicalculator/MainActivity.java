@@ -1,6 +1,5 @@
 package com.example.bmicalculator;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.Color;
@@ -16,14 +15,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
        int flagOfWeight =1, flagOfHeight =0;
+        int dotFlagWeight =0,dotFlagHeight=0;
+        int flagOfnewInput=0,flagOfnewInput2=0;
+        boolean colorChange=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +34,12 @@ public class MainActivity extends AppCompatActivity {
         final Spinner spin2;
         ArrayAdapter adapter2;
         final Spinner sp;
-        final TextView kilogram = (TextView) findViewById(R.id.kilogram_Syntax);
         Button goButton = (Button)findViewById(R.id.go);
         final LinearLayout linearResult =(LinearLayout)findViewById(R.id.result_layout);
         final View v = findViewById(R.id.include);
         final GridLayout gridLayoutnew =(GridLayout)findViewById(R.id.grid_layout);
         spin2=(Spinner)findViewById(R.id.spinner2);
         sp = (Spinner) findViewById(R.id.spinner1);
-        final TextView centimeter_textview=(TextView)findViewById(R.id.centimeter_textview);
         final ArrayList<Button> list = new ArrayList<>();
         final Button zero = (Button) findViewById(R.id.zero);
         list.add(zero);
@@ -62,18 +61,15 @@ public class MainActivity extends AppCompatActivity {
         list.add(eight);
         final Button nine = (Button) findViewById(R.id.nine);
         list.add(nine);
-        final TextView meter =(TextView)findViewById(R.id.centimeter_Syntax);
 //for change of color of weight and height..
-        final TextView weight_TextField;
 
-        weight_TextField = (TextView) findViewById(R.id.kilogram_textview);
         ConstraintLayout weight_measure_layout = (ConstraintLayout) findViewById(R.id.weight_measure_layout);
         ConstraintLayout height_measure_layout = (ConstraintLayout) findViewById(R.id.height_measure_layout);
         final ConstraintLayout weight_left_layout = (ConstraintLayout) findViewById(R.id.weight_Left_Layout);
         final ConstraintLayout height_left_layout = (ConstraintLayout) findViewById(R.id.height_left_Layout);
          final TextView weight_Number=(TextView)findViewById(R.id.kilogram_textview);
          final TextView height_TextField=(TextView)findViewById(R.id.centimeter_textview);
-//
+         final TextView dot =(TextView)findViewById(R.id.dot);
 //        final Spinner spinner_Weight= (Spinner) findViewById(R.id.spinner1);
 //        final Spinner spinner_height= (Spinner) findViewById(R.id.spinner2);
          //result layout initialization--------
@@ -88,22 +84,26 @@ public class MainActivity extends AppCompatActivity {
         weight_measure_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                weight_TextField.setTextColor(Color.RED);
+                weight_Number.setTextColor(Color.RED);
                 height_TextField.setTextColor(getResources().getColor(R.color.colorDark_grey2));
                 gridLayoutnew.setVisibility(View.VISIBLE);
                 flagOfWeight =1;
                 flagOfHeight =0;
+                flagOfnewInput=1;
+                flagOfnewInput2=0;
             }
         });
         height_measure_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                centimeter_textview.setTextColor(Color.RED);
-                weight_TextField.setTextColor(getResources().getColor(R.color.colorDark_grey2));
+                height_TextField.setTextColor(Color.RED);
+                weight_Number.setTextColor(getResources().getColor(R.color.colorDark_grey2));
                 gridLayoutnew.setVisibility(View.VISIBLE);
 //                linearResult.setVisibility(view.GONE);
                     flagOfWeight=0;
                     flagOfHeight=1;
+                    flagOfnewInput=0;
+                    flagOfnewInput2=1;
             }
         });
 
@@ -141,7 +141,11 @@ public class MainActivity extends AppCompatActivity {
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                kilogram.setText(weightlist[i]);
+                kilogram_Result.setText(weightlist[i]);
+                weight_Number.setTextColor(getResources().getColor(R.color.colorDarkorange));
+                flagOfWeight=1;
+                height_TextField.setTextColor((getResources().getColor(R.color.colorDark_grey2)));
+                flagOfHeight=0;
             }
 
             @Override
@@ -156,7 +160,15 @@ public class MainActivity extends AppCompatActivity {
         spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                meter.setText(heightlist[i]);
+                centimeter_Result.setText(heightlist[i]);
+                if(colorChange) {
+                    height_TextField.setTextColor(getResources().getColor(R.color.colorRED));
+                    flagOfWeight = 0;
+                    weight_Number.setTextColor(getResources().getColor(R.color.colorDark_grey2));
+                    flagOfHeight = 1;
+                }else{
+                    colorChange=true;
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -168,12 +180,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sp.performClick();
+
             }
         });
         height_left_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 spin2.performClick();
+
 
             }
         });
@@ -190,19 +204,22 @@ public class MainActivity extends AppCompatActivity {
                     weighTemp = Double.parseDouble(weight_Number.getText().toString()) / 0.4535;
                 }
                 if (centimeter_Result.getText().toString().equals("Centimeter")) {
-                    heightTemp = Double.parseDouble(centimeter_textview.getText().toString()) / 100;
+                    heightTemp = Double.parseDouble(height_TextField.getText().toString()) / 100;
                 } else if (centimeter_Result.getText().toString().equals("Meter")) {
-                    heightTemp = Double.parseDouble(centimeter_textview.getText().toString());
+                    heightTemp = Double.parseDouble(height_TextField.getText().toString());
                 } else if (centimeter_Result.getText().toString().equals("Feet")) {
-                    heightTemp = Double.parseDouble(centimeter_textview.getText().toString()) / 0.3048;
+                    heightTemp = Double.parseDouble(height_TextField.getText().toString())/3.281;
                 } else if (centimeter_Result.getText().toString().equals("Inch")) {
-                    heightTemp = Double.parseDouble(centimeter_textview.getText().toString()) / 0.0254;
+                    heightTemp = Double.parseDouble(height_TextField.getText().toString())/39.37;
                 }
                 double final_result = (weighTemp / (heightTemp * heightTemp));
-                if (final_result < 16.0 || final_result > 40.0) {
+                if (final_result < 16.0 || final_result > 50.0) {
                     Toast.makeText(getApplicationContext(), "Invalid BMI! Please check your input", Toast.LENGTH_LONG).show();
 
-                } else {
+                }else if(weighTemp==0 && heightTemp==0){
+                    Toast.makeText(getApplicationContext(), "Invalid BMI! Please check your input", Toast.LENGTH_LONG).show();
+                }
+                else {
                     display_ResultTextView.setText(Double.toString(final_result));
 
                     if (Double.parseDouble(display_ResultTextView.getText().toString()) > 18.5 && Double.parseDouble(display_ResultTextView.getText().toString()) < 25)
@@ -225,10 +242,12 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 if(flagOfWeight==1) {
-                    weight_TextField.setText("0");
+                    weight_Number.setText("0");
                 }
                 if(flagOfHeight==1)
                 height_TextField.setText("0");
+                dotFlagWeight=0;
+                dotFlagHeight=0;
             }
         });
 //for inserting the values--------------
@@ -239,28 +258,43 @@ public class MainActivity extends AppCompatActivity {
               public void onClick(View view) {
                   
 
-                  if(weight_TextField.getText().toString().equals("0") && flagOfWeight==1){
-                      weight_TextField.setText("");
+                  if(weight_Number.getText().toString().equals("0") && flagOfWeight==1){
+                      weight_Number.setText("");
+
                   }
                   if(height_TextField.getText().toString().equals("0")&& flagOfHeight==1){
                       height_TextField.setText("");
                   }
-                  if(flagOfWeight==1){
-                  if (weight_TextField.getText().toString().equals("60")) {
-                      weight_TextField.setText(numberButton[finalI]);
-                  }else {
-                      if(weight_Number.getText().toString().length()<3)
-
-                          weight_TextField.append(numberButton[finalI]);
-                  }
-                  }else if(flagOfHeight==1){
-                      if (height_TextField.getText().toString().equals("170")) {
-                          height_TextField.setText(numberButton[finalI]);
-                      } else {
-                          if(height_TextField.getText().toString().length()<3)
-                          height_TextField.append(numberButton[finalI]);
-
+                  if(flagOfWeight==1 ){
+                  if (weight_Number.getText().toString().equals("60") || flagOfnewInput==1) {
+                      weight_Number.setText(numberButton[finalI]);
+                      flagOfnewInput=0;
+                  }else if(weight_Number.getText().toString().length()<6)
+                  {
+                      if(weight_Number.getText().toString().contains(".")) {
+                          if (weight_Number.getText().toString().length() - weight_Number.getText().toString().indexOf(".") < 3) {
+                              weight_Number.append(numberButton[finalI]);
+                          }
+                      }else if(weight_Number.getText().toString().length()<3) {
+                          weight_Number.append(numberButton[finalI]);
                       }
+                  }
+
+                  }else if(flagOfHeight==1){
+                      if (height_TextField.getText().toString().equals("170") ||flagOfnewInput2==1) {
+                          height_TextField.setText(numberButton[finalI]);
+                          flagOfnewInput2=0;
+                      } else if(height_TextField.getText().toString().length()<6)
+                      {
+                          if(height_TextField.getText().toString().contains(".")) {
+                              if (height_TextField.getText().toString().length() - height_TextField.getText().toString().indexOf(".") < 3) {
+                                  height_TextField.append(numberButton[finalI]);
+                              }
+                          } else if(height_TextField.getText().toString().length()<3) {
+                              height_TextField.append(numberButton[finalI]);
+                          }
+                      }
+
                   }
               }
           });
@@ -282,6 +316,25 @@ public class MainActivity extends AppCompatActivity {
                   {
                       height_TextField.setText(height_TextField.getText().toString().substring(0,height_TextField.getText().toString().length()-1));
 
+                  }
+
+              }
+          });
+          dot.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  if(flagOfWeight==1){
+                  if(!weight_Number.getText().toString().contains("."))
+                  {
+                      weight_Number.append(dot.getText());
+                      dotFlagWeight =1;
+                  }
+                  }else if(flagOfHeight==1){
+                      if(!height_TextField.getText().toString().contains("."))
+                      {
+                      height_TextField.append(dot.getText());
+                      dotFlagHeight = 1;
+                  }
                   }
               }
           });

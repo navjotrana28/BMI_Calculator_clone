@@ -6,13 +6,20 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/result_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
+        android:layout_height="360dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
+    android:orientation="vertical"
+   >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:id="@+id/result_constraint_1"
@@ -23,7 +30,7 @@
             android:layout_height="0dp"
             android:text="20.8"
             android:textColor="@color/colorDarkorange"
-            android:textSize="70dp"
+            android:textSize="60dp"
             android:textAlignment="center"
             android:paddingLeft="20dp"
             app:layout_constraintBottom_toBottomOf="@id/result_constraint_1"
@@ -64,14 +71,19 @@
         android:id="@+id/viewBar"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_height="8dp"
+        android:layout_height="4dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@color/colorDark_grey2"/>
 
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:elevation="8dp"
         android:outlineSpotShadowColor="@color/colorDark_grey2"
-        android:layout_height="30dp" />
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/view_result2"
@@ -93,10 +105,11 @@
             android:id="@+id/underWeight"
             android:layout_width="97dp"
             android:layout_height="32dp"
-            android:layout_marginTop="16dp"
             android:text="Underweight"
             android:textColor="@color/colorBlue"
-            android:textSize="14dp"
+            android:textSize="12dp"
+            android:gravity="bottom"
+            android:textAlignment="center"
             app:layout_constraintLeft_toLeftOf="@+id/result_constraint_2"
             app:layout_constraintRight_toLeftOf="@+id/id_normal"
             app:layout_constraintTop_toTopOf="parent"
@@ -107,10 +120,11 @@
             android:id="@+id/id_normal"
             android:layout_width="97dp"
             android:layout_height="32dp"
-            android:layout_marginTop="16dp"
+            android:gravity="bottom"
             android:text="Normal"
+            android:textAlignment="center"
             android:textColor="@color/colorGreen"
-            android:textSize="14dp"
+            android:textSize="12dp"
             app:layout_constraintRight_toLeftOf="@+id/id_overweight"
             app:layout_constraintLeft_toRightOf="@+id/underWeight"
             app:layout_constraintTop_toTopOf="@+id/result_constraint_2"
@@ -121,10 +135,10 @@
             android:id="@+id/id_overweight"
             android:layout_width="97dp"
             android:layout_height="32dp"
-            android:textSize="14dp"
+            android:textSize="12dp"
             android:textColor="@color/colorDarkorange"
-            android:layout_marginTop="16dp"
             android:text="Overweight"
+            android:gravity="bottom"
             app:layout_constraintLeft_toRightOf="@+id/id_normal"
             app:layout_constraintTop_toTopOf="@+id/result_constraint_2"
             app:layout_constraintRight_toRightOf="@+id/result_constraint_2"
@@ -133,21 +147,21 @@
 
         <View
             android:id="@+id/view_Underweight"
-            android:layout_height="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="12dp"
             android:background="@color/colorBlue"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="16dp"
             app:layout_constraintLeft_toLeftOf="@+id/result_constraint_2"
             app:layout_constraintRight_toLeftOf="@+id/view_normal"
             app:layout_constraintTop_toBottomOf="@id/underWeight"
             app:layout_constraintBottom_toBottomOf="@+id/min_Underweight"
-            android:layout_width="0dp" />
+            android:layout_width="0dp"
+            android:layout_marginLeft="20dp"/>
 
         <View
             android:id="@+id/view_normal"
-            android:layout_height="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="12dp"
             android:background="@color/colorGreen"
             app:layout_constraintLeft_toRightOf="@+id/view_Underweight"
             app:layout_constraintRight_toLeftOf="@+id/view_overWeight"
@@ -159,13 +173,13 @@
         <View
             android:id="@+id/view_overWeight"
             android:layout_width="0dp"
-            android:layout_height="8dp"
-            android:layout_marginTop="13dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="9dp"
             android:background="@color/colorDarkorange"
             app:layout_constraintBottom_toTopOf="@+id/above_Overweight"
             app:layout_constraintLeft_toRightOf="@+id/view_normal"
             app:layout_constraintRight_toRightOf="@id/result_constraint_2"
-
+            android:layout_marginRight="20dp"
             app:layout_constraintTop_toBottomOf="@id/id_overweight" />
 
         <TextView
@@ -177,6 +191,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="72dp"
             tools:ignore="MissingConstraints"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/view_Underweight"
             app:layout_constraintLeft_toLeftOf="@+id/result_constraint_2"
             app:layout_constraintRight_toLeftOf="@+id/btw_Underweight_normal"
@@ -189,6 +204,7 @@
             android:layout_height="wrap_content"
             android:text="18.5"
             android:textSize="17dp"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/view_normal"
             app:layout_constraintLeft_toRightOf="@+id/min_Underweight"
             app:layout_constraintRight_toLeftOf="@+id/btw_normal_overweight"
@@ -214,11 +230,11 @@
             tools:layout_editor_absoluteX="331dp"
             tools:layout_editor_absoluteY="72dp"
             tools:ignore="MissingConstraints"
-            android:textAlignment="textEnd"
             app:layout_constraintTop_toBottomOf="@id/view_overWeight"
             app:layout_constraintLeft_toRightOf="@+id/btw_normal_overweight"
             app:layout_constraintRight_toRightOf="@+id/result_constraint_2"
             app:layout_constraintBottom_toBottomOf="@+id/result_constraint_2"
-            android:gravity="end" />
+            android:gravity="center" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </LinearLayout>

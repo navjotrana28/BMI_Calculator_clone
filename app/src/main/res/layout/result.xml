@@ -31,13 +31,13 @@
             android:text="20.8"
             android:textColor="@color/colorDarkorange"
             android:textSize="60dp"
-            android:textAlignment="center"
+            android:textAlignment="viewEnd"
             android:paddingLeft="20dp"
             app:layout_constraintBottom_toBottomOf="@id/result_constraint_1"
             app:layout_constraintTop_toTopOf="@id/result_constraint_1"
             app:layout_constraintRight_toLeftOf="@+id/bmi_result_side"
             app:layout_constraintLeft_toLeftOf="@+id/result_constraint_1"
-             />
+            android:gravity="end" />
 
         <TextView
             android:id="@+id/bmi_result_side"
@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:elevation="8dp"
+        android:elevation="10dp"
         android:outlineSpotShadowColor="@color/colorDark_grey2"
         android:layout_height="20dp" />
 

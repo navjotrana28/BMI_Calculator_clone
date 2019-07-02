@@ -24,20 +24,23 @@
         android:layout_width="match_parent"
         android:id="@+id/result_constraint_1"
         android:layout_height="80dp">
+
         <TextView
             android:id="@+id/display_result"
-            android:layout_width="0dp"
+            android:layout_width="160dp"
             android:layout_height="0dp"
+            android:paddingTop="8dp"
             android:text="20.8"
+            android:gravity="center"
+            android:textAlignment="center"
             android:textColor="@color/colorDarkorange"
-            android:textSize="60dp"
-            android:textAlignment="viewEnd"
-            android:paddingLeft="20dp"
+            android:textSize="54dp"
+            android:paddingLeft="40dp"
             app:layout_constraintBottom_toBottomOf="@id/result_constraint_1"
-            app:layout_constraintTop_toTopOf="@id/result_constraint_1"
-            app:layout_constraintRight_toLeftOf="@+id/bmi_result_side"
             app:layout_constraintLeft_toLeftOf="@+id/result_constraint_1"
-            android:gravity="end" />
+            app:layout_constraintRight_toLeftOf="@+id/bmi_result_side"
+            app:layout_constraintTop_toTopOf="@id/result_constraint_1"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/bmi_result_side"
@@ -47,6 +50,7 @@
             android:textSize="36dp"
             android:gravity="bottom"
             android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
             app:layout_constraintTop_toTopOf="@+id/result_constraint_1"
             app:layout_constraintLeft_toRightOf="@+id/display_result"
             app:layout_constraintRight_toRightOf="@+id/result_constraint_1"
@@ -58,13 +62,14 @@
             android:layout_height="40dp"
             android:text="Normal"
             android:textSize="15dp"
-            android:textAlignment="textStart"
+            android:textAlignment="viewStart"
+            android:paddingLeft="10dp"
             app:layout_constraintTop_toBottomOf="@+id/bmi_result_side"
             app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_1"
             app:layout_constraintLeft_toRightOf="@+id/display_result"
             app:layout_constraintRight_toRightOf="@+id/result_constraint_1"
             tools:ignore="NotSibling"
-            android:gravity="start" />
+           />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -72,17 +77,16 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="4dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
         android:background="@color/colorDark_grey2"/>
 
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:elevation="10dp"
-        android:outlineSpotShadowColor="@color/colorDark_grey2"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:elevation="1sp"
         android:layout_height="20dp" />
 
     <TextView
@@ -137,13 +141,15 @@
             android:layout_height="32dp"
             android:textSize="12dp"
             android:textColor="@color/colorDarkorange"
+            android:textAlignment="viewEnd"
             android:text="Overweight"
             android:gravity="bottom"
+            android:paddingRight="10dp"
             app:layout_constraintLeft_toRightOf="@+id/id_normal"
             app:layout_constraintTop_toTopOf="@+id/result_constraint_2"
             app:layout_constraintRight_toRightOf="@+id/result_constraint_2"
             app:layout_constraintBottom_toTopOf="@+id/view_overWeight"
-            />
+            tools:ignore="RtlCompat" />
 
         <View
             android:id="@+id/view_Underweight"
@@ -156,7 +162,7 @@
             app:layout_constraintTop_toBottomOf="@id/underWeight"
             app:layout_constraintBottom_toBottomOf="@+id/min_Underweight"
             android:layout_width="0dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="12dp"/>
 
         <View
             android:id="@+id/view_normal"
@@ -174,12 +180,12 @@
             android:id="@+id/view_overWeight"
             android:layout_width="0dp"
             android:layout_height="4dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:background="@color/colorDarkorange"
             app:layout_constraintBottom_toTopOf="@+id/above_Overweight"
             app:layout_constraintLeft_toRightOf="@+id/view_normal"
             app:layout_constraintRight_toRightOf="@id/result_constraint_2"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="12dp"
             app:layout_constraintTop_toBottomOf="@id/id_overweight" />
 
         <TextView
@@ -187,9 +193,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="16.0"
-            android:textSize="17dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="72dp"
             tools:ignore="MissingConstraints"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/view_Underweight"
@@ -203,7 +206,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="18.5"
-            android:textSize="17dp"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/view_normal"
             app:layout_constraintLeft_toRightOf="@+id/min_Underweight"
@@ -227,8 +229,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="40.0"
-            tools:layout_editor_absoluteX="331dp"
-            tools:layout_editor_absoluteY="72dp"
             tools:ignore="MissingConstraints"
             app:layout_constraintTop_toBottomOf="@id/view_overWeight"
             app:layout_constraintLeft_toRightOf="@+id/btw_normal_overweight"

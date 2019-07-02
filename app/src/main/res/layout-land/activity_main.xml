@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraint_layout_01"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="18dp"
         android:text="BMI"
         android:textAlignment="center"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraint_layout_01"
-        tools:ignore="MissingConstraints" />
-
+        android:textSize="15dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_greylightest"
+        />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constraint_layout_01">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout_02"
@@ -88,7 +93,7 @@
                     android:layout_height="0dp"
                     android:gravity="end"
                     android:paddingLeft="15dp"
-                    android:paddingTop="60dp"
+                    android:paddingTop="50dp"
                     android:text="60"
                     android:textAlignment="viewEnd"
                     android:textColor="@color/colorDarkorange"
@@ -126,6 +131,12 @@
             app:layout_constraintRight_toRightOf="@+id/constraintLayout_02"
             app:layout_constraintTop_toBottomOf="@+id/constraint_layout_4">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_greylightest">
+
+            </View>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/height_left_Layout"
                 android:layout_width="0dp"
@@ -174,7 +185,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:paddingLeft="15dp"
-                    android:paddingTop="60dp"
+                    android:paddingTop="50dp"
                     android:text="170"
                     android:textSize="20dp"
                     app:layout_constraintBottom_toTopOf="@+id/centimeter_Syntax"
@@ -206,7 +217,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout_03"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="360dp"
         app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_01"
         app:layout_constraintLeft_toRightOf="@+id/constraintLayout_02"
         app:layout_constraintRight_toRightOf="@+id/constraint_layout_01"
@@ -214,7 +225,7 @@
 
         <GridLayout
             android:id="@+id/grid_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:columnCount="4"
             android:orientation="horizontal"
@@ -311,5 +322,5 @@
             android:visibility="gone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

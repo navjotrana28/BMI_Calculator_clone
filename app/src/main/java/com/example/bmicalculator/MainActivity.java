@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String METER_KEY = "Meter";
     public static final String FEET_KEY = "Feet";
     public static final String INCH_KEY = "Inch";
+    public static boolean BOOLEAN_CHANGE;
     public static final String INVALID_BMI_PLEASE_CHECK_YOUR_INPUT = "Invalid BMI! Please check your input";
     public static final String NORMAL_KEY = "Normal";
     public static final String UNDERWEIGHT_KEY = "Underweight";
@@ -41,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
     public static final String DECIMAL_KEY = ".";
     private static final String WEIGHT_VALUE = "weightvalue";
     private static final String RESULT_VISIBILITY = "result_visibility";
+    private static final String HEIGHT_INPUT_COLOR = "height_input_color";
     public final String HEIGHT_VALUE = "HeightValue";
     public final String WEIGHT_UNITS = "weight_units_value";
     public final String HEIGHT_UNITS = "height_units_value";
     public final String DISPLAY_RESULT_VALUE = "display_result_value";
     public final String NORMAL_UNDER_OVERWEIGHT_VALUE = "normal_under_overweight";
+    public final String WEIGHT_INPUT_COLOR = "weight_input_color";
     int flagOfWeight = 1, flagOfHeight = 0;
     int dotFlagWeight = 0, dotFlagHeight = 0;
     int flagOfnewInput = 0, flagOfnewInput2 = 0;
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -96,22 +99,6 @@ public class MainActivity extends AppCompatActivity {
         textAllClear = findViewById(R.id.AC);
         goButton = findViewById(R.id.go);
 
-
-        if (savedInstanceState != null) {
-            weightInput.setText(savedInstanceState.getString(WEIGHT_VALUE));
-            heightInput.setText(savedInstanceState.getString(HEIGHT_VALUE));
-            if (savedInstanceState.getBoolean(RESULT_VISIBILITY)) {
-                gridLayout.setVisibility(View.GONE);
-                includeResult.setVisibility(View.VISIBLE);
-            } else {
-                gridLayout.setVisibility(View.VISIBLE);
-                includeResult.setVisibility(View.GONE);
-            }
-            weightUnits.setText(savedInstanceState.getString(HEIGHT_UNITS));
-            heightUnits.setText(savedInstanceState.getString(HEIGHT_UNITS));
-            display_ResultTextView.setText(savedInstanceState.getString(DISPLAY_RESULT_VALUE));
-            normal_under_overWeight.setText(savedInstanceState.getString(NORMAL_UNDER_OVERWEIGHT_VALUE));
-        }
 
         final String[] numberButton = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         final Spinner heightSpinner;
@@ -218,14 +205,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 heightUnits.setText(heightTypeList[i]);
-                if (colorChange) {
-                    heightInput.setTextColor(getResources().getColor(R.color.colorRED));
-                    flagOfWeight = 0;
-                    weightInput.setTextColor(getResources().getColor(R.color.colorDark_grey2));
-                    flagOfHeight = 1;
-                } else {
-                    colorChange = true;
-                }
+                if (savedInstanceState != null)
+                    if (colorChange) {
+                        heightInput.setTextColor(getResources().getColor(R.color.colorRED));
+                        flagOfWeight = 0;
+                        weightInput.setTextColor(getResources().getColor(R.color.colorDark_grey2));
+                        flagOfHeight = 1;
+                    } else {
+                        colorChange = true;
+                    }
             }
 
             @Override
@@ -390,21 +378,43 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
         //  outState.putString(HEIGHT_VALUE_KEY,);
+        super.onSaveInstanceState(outState);
         outState.putString(WEIGHT_VALUE, weightInput.getText().toString());
         outState.putString(HEIGHT_VALUE, heightInput.getText().toString());
-        outState.putBoolean(RESULT_VISIBILITY, false);
-        Log.d("emre1s", includeResult.getVisibility() + " ?");
-        if (includeResult.getVisibility() == View.VISIBLE) {
-            outState.putBoolean(RESULT_VISIBILITY, true);
-        }
+
         outState.putString(WEIGHT_UNITS, weightUnits.getText().toString());
         outState.putString(HEIGHT_UNITS, heightUnits.getText().toString());
         outState.putString(DISPLAY_RESULT_VALUE, display_ResultTextView.getText().toString());
         outState.putString(NORMAL_UNDER_OVERWEIGHT_VALUE, normal_under_overWeight.getText().toString());
+        outState.putInt(WEIGHT_INPUT_COLOR, weightInput.getCurrentTextColor());
+        outState.putInt(HEIGHT_INPUT_COLOR, heightInput.getCurrentTextColor());
+        outState.putBoolean(RESULT_VISIBILITY, false);
+        if (includeResult.getVisibility() == View.VISIBLE) {
+            outState.putBoolean(RESULT_VISIBILITY, true);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        weightInput.setText(savedInstanceState.getString(WEIGHT_VALUE));
+        heightInput.setText(savedInstanceState.getString(HEIGHT_VALUE));
+        if (savedInstanceState.getBoolean(RESULT_VISIBILITY)) {
+            gridLayout.setVisibility(View.GONE);
+            includeResult.setVisibility(View.VISIBLE);
+        } else {
+            gridLayout.setVisibility(View.VISIBLE);
+            includeResult.setVisibility(View.GONE);
+        }
+        weightUnits.setText(savedInstanceState.getString(HEIGHT_UNITS));
+        heightUnits.setText(savedInstanceState.getString(HEIGHT_UNITS));
+        display_ResultTextView.setText(savedInstanceState.getString(DISPLAY_RESULT_VALUE));
+        normal_under_overWeight.setText(savedInstanceState.getString(NORMAL_UNDER_OVERWEIGHT_VALUE));
+        weightInput.setTextColor(savedInstanceState.getInt(WEIGHT_INPUT_COLOR));
+        heightInput.setTextColor(savedInstanceState.getInt(HEIGHT_INPUT_COLOR));
+
 
 
     }
-
 }

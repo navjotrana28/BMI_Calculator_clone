@@ -7,10 +7,10 @@
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="18dp"
+        android:layout_height="22dp"
         android:text="BMI"
         android:textAlignment="center"
-        android:textSize="15dp"/>
+        android:textSize="18dp"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -46,7 +46,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_4"
                 app:layout_constraintLeft_toLeftOf="@+id/constraint_layout_4"
-                app:layout_constraintRight_toLeftOf="@+id/weight_measure_layout"
+                app:layout_constraintRight_toLeftOf="@+id/weight_Input_layout"
                 app:layout_constraintTop_toTopOf="@+id/constraint_layout_4">
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:text="Weight"
                     android:textSize="15dp"
                     app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
-                    app:layout_constraintRight_toLeftOf="@+id/spinner1"
+                    app:layout_constraintRight_toLeftOf="@+id/weightSpinner"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout"
                     app:layout_constraintVertical_bias="0.533" />
@@ -79,7 +79,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/weight_measure_layout"
+                android:id="@+id/weight_Input_layout"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_4"
@@ -88,7 +88,7 @@
                 app:layout_constraintTop_toTopOf="@+id/constraint_layout_4">
 
                 <TextView
-                    android:id="@+id/kilogram_textview"
+                    android:id="@+id/weight_InputTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:gravity="end"
@@ -98,23 +98,23 @@
                     android:textAlignment="viewEnd"
                     android:textColor="@color/colorDarkorange"
                     android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/kilogram_Syntax"
-                    app:layout_constraintLeft_toLeftOf="@+id/weight_measure_layout"
-                    app:layout_constraintRight_toRightOf="@+id/weight_measure_layout"
-                    app:layout_constraintTop_toTopOf="@+id/weight_measure_layout" />
+                    app:layout_constraintBottom_toTopOf="@+id/weight_Syntax"
+                    app:layout_constraintLeft_toLeftOf="@+id/weight_Input_layout"
+                    app:layout_constraintRight_toRightOf="@+id/weight_Input_layout"
+                    app:layout_constraintTop_toTopOf="@+id/weight_Input_layout" />
 
                 <TextView
-                    android:id="@+id/kilogram_Syntax"
+                    android:id="@+id/weight_Syntax"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:paddingLeft="0dp"
                     android:paddingTop="1dp"
                     android:text="Kilogram"
                     android:textSize="14dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/weight_measure_layout"
-                    app:layout_constraintLeft_toLeftOf="@+id/weight_measure_layout"
-                    app:layout_constraintRight_toRightOf="@+id/weight_measure_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/kilogram_textview" />
+                    app:layout_constraintBottom_toBottomOf="@+id/weight_Input_layout"
+                    app:layout_constraintLeft_toLeftOf="@+id/weight_Input_layout"
+                    app:layout_constraintRight_toRightOf="@+id/weight_Input_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/weight_InputTextView" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -143,7 +143,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_05"
                 app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_05"
-                app:layout_constraintRight_toLeftOf="@+id/height_measure_layout"
+                app:layout_constraintRight_toLeftOf="@+id/height_Input_layout"
                 app:layout_constraintTop_toTopOf="@+id/constraintLayout_05">
 
                 <TextView
@@ -157,7 +157,7 @@
                     app:layout_constraintTop_toTopOf="@+id/height_left_Layout" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/heightSpinner"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginRight="90dp"
@@ -172,7 +172,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/height_measure_layout"
+                android:id="@+id/height_Input_layout"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_05"
@@ -181,30 +181,30 @@
                 app:layout_constraintTop_toTopOf="@+id/constraintLayout_05">
 
                 <TextView
-                    android:id="@+id/centimeter_textview"
+                    android:id="@+id/height_InputTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:paddingLeft="15dp"
                     android:paddingTop="50dp"
                     android:text="170"
                     android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/centimeter_Syntax"
-                    app:layout_constraintLeft_toLeftOf="@+id/height_measure_layout"
-                    app:layout_constraintRight_toRightOf="@+id/height_measure_layout"
-                    app:layout_constraintTop_toTopOf="@+id/height_measure_layout" />
+                    app:layout_constraintBottom_toTopOf="@+id/syntax_Syntax"
+                    app:layout_constraintLeft_toLeftOf="@+id/height_Input_layout"
+                    app:layout_constraintRight_toRightOf="@+id/height_Input_layout"
+                    app:layout_constraintTop_toTopOf="@+id/height_Input_layout" />
 
                 <TextView
-                    android:id="@+id/centimeter_Syntax"
+                    android:id="@+id/syntax_Syntax"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:paddingLeft="0dp"
                     android:paddingTop="1dp"
                     android:text="centimeter"
                     android:textSize="14dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/height_measure_layout"
-                    app:layout_constraintLeft_toLeftOf="@+id/height_measure_layout"
-                    app:layout_constraintRight_toRightOf="@+id/height_measure_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/centimeter_textview" />
+                    app:layout_constraintBottom_toBottomOf="@+id/height_Input_layout"
+                    app:layout_constraintLeft_toLeftOf="@+id/height_Input_layout"
+                    app:layout_constraintRight_toRightOf="@+id/height_Input_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/height_InputTextView" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -225,7 +225,7 @@
 
         <GridLayout
             android:id="@+id/grid_layout"
-            android:layout_width="350dp"
+            android:layout_width="345dp"
             android:layout_height="wrap_content"
             android:columnCount="4"
             android:orientation="horizontal"
@@ -279,22 +279,23 @@
             <Button
                 android:id="@+id/one"
                 style="@style/forButtons"
-                android:text="@string/_1" />
+                android:text="@string/digitOne" />
 
             <Button
                 android:id="@+id/two"
                 style="@style/forButtons"
-                android:text="@string/_2" />
+                android:text="@string/digitTwo" />
 
             <Button
                 android:id="@+id/three"
                 style="@style/forButtons"
-                android:text="@string/_3" />
+                android:text="@string/digitThree" />
 
             <Button
                 android:id="@+id/go"
                 android:layout_rowSpan="2"
                 android:layout_gravity="fill"
+                android:onClick="onClick"
                 android:background="@color/colorDarkorange"
                 android:text="@string/go"
                 android:textColor="@android:color/white"
@@ -305,7 +306,7 @@
                 android:layout_columnSpan="2"
                 android:layout_gravity="fill"
                 android:background="@android:color/white"
-                android:text="@string/_0"
+                android:text="@string/digitZero"
                 android:textSize="24sp" />
 
             <Button

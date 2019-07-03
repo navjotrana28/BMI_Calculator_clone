@@ -252,6 +252,7 @@
                 android:id="@+id/AC"
                 style="@style/forButtons"
                 android:layout_gravity="fill"
+                android:textColor="@color/colorDarkorange"
                 android:text="AC" />
 
             <Button
@@ -296,7 +297,7 @@
                 android:layout_rowSpan="2"
                 android:layout_gravity="fill"
                 android:onClick="onClick"
-                android:background="@color/colorDarkorange"
+                style="@style/goBTN"
                 android:text="@string/go"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
@@ -305,8 +306,9 @@
                 android:id="@+id/zero"
                 android:layout_columnSpan="2"
                 android:layout_gravity="fill"
-                android:background="@android:color/white"
                 android:text="@string/digitZero"
+                style="@style/forButtons"
+                android:onClick="onClick"
                 android:textSize="24sp" />
 
             <Button

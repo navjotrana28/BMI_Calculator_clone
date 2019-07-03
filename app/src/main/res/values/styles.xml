@@ -16,6 +16,9 @@
         <item name="android:onClick">onClick</item>
 
     </style>
+    <style name="goBTN">
+        <item name="android:background">@drawable/gobutton</item>
+    </style>
 
 
 </resources>

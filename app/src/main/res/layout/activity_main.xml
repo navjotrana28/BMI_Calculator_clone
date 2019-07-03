@@ -268,20 +268,20 @@
             android:id="@+id/go"
             android:layout_rowSpan="2"
             android:layout_gravity="fill"
-            android:background="@color/colorDarkorange"
             android:text="@string/go"
             android:onClick="onClick"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            style="@style/goBTN"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/zero"
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:onClick="onClick"
-            android:background="@android:color/white"
+            style="@style/forButtons"
             android:text="@string/digitZero"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/dot"

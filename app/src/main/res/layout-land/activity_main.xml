@@ -5,325 +5,318 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:text="BMI"
+        android:layout_height="@dimen/bmi_View_height"
+        android:text="@string/bmi"
         android:textAlignment="center"
-        android:textSize="18dp"/>
+        android:textSize="@dimen/textSize_bmiView_layout02" />
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_greylightest"
-        />
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/constraint_layout_01">
+        android:layout_height="@dimen/height__view1Divider_layout02"
+        android:background="@color/color_greylightest" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_02"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_01"
-        app:layout_constraintLeft_toLeftOf="@+id/constraint_layout_01"
-        app:layout_constraintRight_toLeftOf="@+id/constraintLayout_03"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_01"
-        tools:ignore="MissingConstraints">
+        android:id="@+id/constraint_layout_01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_layout_4"
+            android:id="@+id/constraintLayout_02"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout_05"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_02"
-            app:layout_constraintRight_toRightOf="@+id/constraintLayout_02"
-            app:layout_constraintTop_toTopOf="@+id/constraintLayout_02">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/weight_Left_Layout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_4"
-                app:layout_constraintLeft_toLeftOf="@+id/constraint_layout_4"
-                app:layout_constraintRight_toLeftOf="@+id/weight_Input_layout"
-                app:layout_constraintTop_toTopOf="@+id/constraint_layout_4">
-
-                <TextView
-                    android:id="@+id/weight_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:padding="25dp"
-                    android:text="Weight"
-                    android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
-                    app:layout_constraintRight_toLeftOf="@+id/weightSpinner"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout"
-                    app:layout_constraintVertical_bias="0.533" />
-
-                <Spinner
-                    android:id="@+id/spinner1"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
-                    app:layout_constraintRight_toRightOf="@+id/weight_Left_Layout"
-                    app:layout_constraintStart_toEndOf="@+id/weight_textview"
-                    app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout">
-
-                </Spinner>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/weight_Input_layout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_4"
-                app:layout_constraintLeft_toRightOf="@+id/weight_Left_Layout"
-                app:layout_constraintRight_toRightOf="@+id/constraint_layout_4"
-                app:layout_constraintTop_toTopOf="@+id/constraint_layout_4">
-
-                <TextView
-                    android:id="@+id/weight_InputTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:gravity="end"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="50dp"
-                    android:text="60"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/colorDarkorange"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/weight_Syntax"
-                    app:layout_constraintLeft_toLeftOf="@+id/weight_Input_layout"
-                    app:layout_constraintRight_toRightOf="@+id/weight_Input_layout"
-                    app:layout_constraintTop_toTopOf="@+id/weight_Input_layout" />
-
-                <TextView
-                    android:id="@+id/weight_Syntax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="1dp"
-                    android:text="Kilogram"
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/weight_Input_layout"
-                    app:layout_constraintLeft_toLeftOf="@+id/weight_Input_layout"
-                    app:layout_constraintRight_toRightOf="@+id/weight_Input_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/weight_InputTextView" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_05"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_02"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_02"
-            app:layout_constraintRight_toRightOf="@+id/constraintLayout_02"
-            app:layout_constraintTop_toBottomOf="@+id/constraint_layout_4">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_greylightest">
-
-            </View>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/height_left_Layout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_05"
-                app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_05"
-                app:layout_constraintRight_toLeftOf="@+id/height_Input_layout"
-                app:layout_constraintTop_toTopOf="@+id/constraintLayout_05">
-
-                <TextView
-                    android:id="@+id/height_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="25dp"
-                    android:text="Height"
-                    android:textSize="15dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/height_left_Layout"
-                    app:layout_constraintTop_toTopOf="@+id/height_left_Layout" />
-
-                <Spinner
-                    android:id="@+id/heightSpinner"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="90dp"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintBottom_toBottomOf="@+id/height_left_Layout"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintLeft_toRightOf="@+id/height_textview"
-                    app:layout_constraintRight_toRightOf="@+id/height_left_Layout"
-                    app:layout_constraintTop_toTopOf="@+id/height_left_Layout">
-
-                </Spinner>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/height_Input_layout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_05"
-                app:layout_constraintLeft_toRightOf="@+id/height_left_Layout"
-                app:layout_constraintRight_toRightOf="@+id/constraintLayout_05"
-                app:layout_constraintTop_toTopOf="@+id/constraintLayout_05">
-
-                <TextView
-                    android:id="@+id/height_InputTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="50dp"
-                    android:text="170"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/syntax_Syntax"
-                    app:layout_constraintLeft_toLeftOf="@+id/height_Input_layout"
-                    app:layout_constraintRight_toRightOf="@+id/height_Input_layout"
-                    app:layout_constraintTop_toTopOf="@+id/height_Input_layout" />
-
-                <TextView
-                    android:id="@+id/syntax_Syntax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="1dp"
-                    android:text="centimeter"
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/height_Input_layout"
-                    app:layout_constraintLeft_toLeftOf="@+id/height_Input_layout"
-                    app:layout_constraintRight_toRightOf="@+id/height_Input_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/height_InputTextView" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_03"
-        android:layout_width="0dp"
-        android:layout_height="360dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_01"
-        app:layout_constraintLeft_toRightOf="@+id/constraintLayout_02"
-        app:layout_constraintRight_toRightOf="@+id/constraint_layout_01"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_01">
-
-        <GridLayout
-            android:id="@+id/grid_layout"
-            android:layout_width="345dp"
-            android:layout_height="wrap_content"
-            android:columnCount="4"
-            android:orientation="horizontal"
-            android:rowCount="4"
-            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_01"
+            app:layout_constraintLeft_toLeftOf="@+id/constraint_layout_01"
+            app:layout_constraintRight_toLeftOf="@+id/constraintLayout_03"
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout_01"
             tools:ignore="MissingConstraints">
 
-            <Button
-                android:id="@+id/seven"
-                style="@style/forButtons"
-                android:text="7" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout_4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout_05"
+                app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_02"
+                app:layout_constraintRight_toRightOf="@+id/constraintLayout_02"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout_02">
 
-            <Button
-                android:id="@+id/eight"
-                style="@style/forButtons"
-                android:text="8" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/weight_Left_Layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_4"
+                    app:layout_constraintLeft_toLeftOf="@+id/constraint_layout_4"
+                    app:layout_constraintRight_toLeftOf="@+id/weight_Input_layout"
+                    app:layout_constraintTop_toTopOf="@+id/constraint_layout_4">
 
-            <Button
-                android:id="@+id/nine"
-                style="@style/forButtons"
-                android:text="9" />
+                    <TextView
+                        android:id="@+id/weight_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/weight_textView_marginRight"
+                        android:padding="@dimen/padding_weight_View_Layout02"
+                        android:text="@string/weight"
+                        android:textSize="@dimen/textSize_weightView_layout02"
+                        app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
+                        app:layout_constraintRight_toLeftOf="@+id/weightSpinner"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout"
+                        app:layout_constraintVertical_bias="0.533" />
 
-            <Button
-                android:id="@+id/AC"
-                style="@style/forButtons"
-                android:layout_gravity="fill"
-                android:textColor="@color/colorDarkorange"
-                android:text="AC" />
+                    <Spinner
+                        android:id="@+id/weightSpinner"
+                        android:layout_width="@dimen/spinner_width"
+                        android:layout_height="@dimen/spinnerWeight_height_layout02"
+                        android:spinnerMode="dialog"
+                        app:layout_constraintBottom_toBottomOf="@+id/weight_Left_Layout"
+                        app:layout_constraintRight_toRightOf="@+id/weight_Left_Layout"
+                        app:layout_constraintStart_toEndOf="@+id/weight_textview"
+                        app:layout_constraintTop_toTopOf="@+id/weight_Left_Layout" />
 
-            <Button
-                android:id="@+id/four"
-                style="@style/forButtons"
-                android:text="4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/five"
-                style="@style/forButtons"
-                android:text="5" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/weight_Input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_4"
+                    app:layout_constraintLeft_toRightOf="@+id/weight_Left_Layout"
+                    app:layout_constraintRight_toRightOf="@+id/constraint_layout_4"
+                    app:layout_constraintTop_toTopOf="@+id/constraint_layout_4">
 
-            <Button
+                    <TextView
+                        android:id="@+id/weight_InputTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:gravity="end"
+                        android:paddingStart="@dimen/paddingStart_weight_input"
+                        android:paddingTop="@dimen/paddingTop_weight_input"
+                        android:text="@string/sixty"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorDarkorange"
+                        android:textSize="@dimen/textsize_weightInput_Layout02"
+                        app:layout_constraintBottom_toTopOf="@+id/weight_Units"
+                        app:layout_constraintLeft_toLeftOf="@+id/weight_Input_layout"
+                        app:layout_constraintRight_toRightOf="@+id/weight_Input_layout"
+                        app:layout_constraintTop_toTopOf="@+id/weight_Input_layout"
+                        tools:ignore="RtlSymmetry" />
 
-                android:id="@+id/six"
-                style="@style/forButtons"
-                android:text="6" />
+                    <TextView
+                        android:id="@+id/weight_Units"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:paddingTop="@dimen/padding_weight_unit_representation"
+                        android:text="@string/kilogram"
+                        android:textSize="@dimen/textSize_Weight_representation"
+                        app:layout_constraintBottom_toBottomOf="@+id/weight_Input_layout"
+                        app:layout_constraintLeft_toLeftOf="@+id/weight_Input_layout"
+                        app:layout_constraintRight_toRightOf="@+id/weight_Input_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/weight_InputTextView" />
 
-            <ImageButton
-                android:id="@+id/hash"
-                style="@style/forButtons"
-                android:layout_gravity="fill"
-                android:src="@drawable/ic_tag_with_cancel" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/one"
-                style="@style/forButtons"
-                android:text="@string/digitOne" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/two"
-                style="@style/forButtons"
-                android:text="@string/digitTwo" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout_05"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_02"
+                app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_02"
+                app:layout_constraintRight_toRightOf="@+id/constraintLayout_02"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_layout_4">
 
-            <Button
-                android:id="@+id/three"
-                style="@style/forButtons"
-                android:text="@string/digitThree" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_weight_height_view"
+                    android:background="@color/color_greylightest" />
 
-            <Button
-                android:id="@+id/go"
-                android:layout_rowSpan="2"
-                android:layout_gravity="fill"
-                android:onClick="onClick"
-                style="@style/goBTN"
-                android:text="@string/go"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/height_left_Layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_05"
+                    app:layout_constraintLeft_toLeftOf="@+id/constraintLayout_05"
+                    app:layout_constraintRight_toLeftOf="@+id/height_Input_layout"
+                    app:layout_constraintTop_toTopOf="@+id/constraintLayout_05">
 
-            <Button
-                android:id="@+id/zero"
-                android:layout_columnSpan="2"
-                android:layout_gravity="fill"
-                android:text="@string/digitZero"
-                style="@style/forButtons"
-                android:onClick="onClick"
-                android:textSize="24sp" />
+                    <TextView
+                        android:id="@+id/height_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_height"
+                        android:text="@string/height"
+                        android:textSize="@dimen/textsize_heightView_Layout02"
+                        app:layout_constraintBottom_toBottomOf="@+id/height_left_Layout"
+                        app:layout_constraintTop_toTopOf="@+id/height_left_Layout" />
 
-            <Button
-                android:id="@+id/dot"
-                style="@style/forButtons"
-                android:text="@string/decimal" />
-        </GridLayout>
+                    <Spinner
+                        android:id="@+id/heightSpinner"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="@dimen/layout_marginEnd_heightSpinner_Layout02"
+                        android:spinnerMode="dialog"
+                        app:layout_constraintBottom_toBottomOf="@+id/height_left_Layout"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintLeft_toRightOf="@+id/height_textview"
+                        app:layout_constraintRight_toRightOf="@+id/height_left_Layout"
+                        app:layout_constraintTop_toTopOf="@+id/height_left_Layout" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/height_Input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout_05"
+                    app:layout_constraintLeft_toRightOf="@+id/height_left_Layout"
+                    app:layout_constraintRight_toRightOf="@+id/constraintLayout_05"
+                    app:layout_constraintTop_toTopOf="@+id/constraintLayout_05">
+
+                    <TextView
+                        android:id="@+id/height_InputTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:paddingStart="@dimen/paddingStart_height_Text_Field"
+                        android:paddingTop="@dimen/paddingTop_height_input_Layout02"
+                        android:text="@string/oneseventy"
+                        android:textSize="@dimen/textSize_heightInput_Layout02"
+                        app:layout_constraintBottom_toTopOf="@+id/Height_Unit_representation"
+                        app:layout_constraintLeft_toLeftOf="@+id/height_Input_layout"
+                        app:layout_constraintRight_toRightOf="@+id/height_Input_layout"
+                        app:layout_constraintTop_toTopOf="@+id/height_Input_layout"
+                        tools:ignore="RtlSymmetry" />
+
+                    <TextView
+                        android:id="@+id/Height_Unit_representation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:paddingTop="@dimen/paddingTop_Height_unit_Layout02"
+                        android:text="@string/centimeter"
+                        android:textSize="@dimen/textsize_Height_Units_layout02"
+                        app:layout_constraintBottom_toBottomOf="@+id/height_Input_layout"
+                        app:layout_constraintLeft_toLeftOf="@+id/height_Input_layout"
+                        app:layout_constraintRight_toRightOf="@+id/height_Input_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/height_InputTextView" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_03"
+            android:layout_width="0dp"
+            android:layout_height="360dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_01"
+            app:layout_constraintLeft_toRightOf="@+id/constraintLayout_02"
+            app:layout_constraintRight_toRightOf="@+id/constraint_layout_01"
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout_01">
+
+            <GridLayout
+                android:id="@+id/grid_layout"
+                android:layout_width="@dimen/gridLayout_width_layout02"
+                android:layout_height="wrap_content"
+                android:columnCount="4"
+                android:orientation="horizontal"
+                android:rowCount="4"
+                android:visibility="visible"
+                tools:ignore="MissingConstraints">
+
+                <Button
+                    android:id="@+id/seven"
+                    style="@style/forButtons"
+                    android:text="@string/_7" />
+
+                <Button
+                    android:id="@+id/eight"
+                    style="@style/forButtons"
+                    android:text="@string/_8" />
+
+                <Button
+                    android:id="@+id/nine"
+                    style="@style/forButtons"
+                    android:text="@string/_9" />
+
+                <Button
+                    android:id="@+id/ac"
+                    style="@style/forButtons"
+                    android:layout_gravity="fill"
+                    android:text="@string/ac"
+                    android:textColor="@color/colorDarkorange" />
+
+                <Button
+                    android:id="@+id/four"
+                    style="@style/forButtons"
+                    android:text="@string/_4" />
+
+                <Button
+                    android:id="@+id/five"
+                    style="@style/forButtons"
+                    android:text="@string/_5" />
+
+                <Button
+                    android:id="@+id/six"
+                    style="@style/forButtons"
+                    android:text="@string/_6" />
+
+                <ImageButton
+                    android:id="@+id/hash"
+                    style="@style/forButtons"
+                    android:layout_gravity="fill"
+                    android:src="@drawable/ic_tag_with_cancel"
+                    tools:ignore="ContentDescription" />
+
+                <Button
+                    android:id="@+id/one"
+                    style="@style/forButtons"
+                    android:text="@string/digitOne" />
+
+                <Button
+                    android:id="@+id/two"
+                    style="@style/forButtons"
+                    android:text="@string/digitTwo" />
+
+                <Button
+                    android:id="@+id/three"
+                    style="@style/forButtons"
+                    android:text="@string/digitThree" />
+
+                <Button
+                    android:id="@+id/go"
+                    style="@style/goBTN"
+                    android:layout_rowSpan="2"
+                    android:layout_gravity="fill"
+                    android:onClick="onClick"
+                    android:text="@string/go"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/zero"
+                    style="@style/forButtons"
+                    android:layout_columnSpan="2"
+                    android:layout_gravity="fill"
+                    android:onClick="onClick"
+                    android:text="@string/digitZero"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/dot"
+                    style="@style/forButtons"
+                    android:text="@string/decimal" />
+            </GridLayout>
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

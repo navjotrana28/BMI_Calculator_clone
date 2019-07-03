@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,15 +22,17 @@ import static com.example.bmicalculator.R.layout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final double LOWER_BOUND_UNDER_WEIGHT = 16.0;
-    public static final double OUT_OF_BOUND_OVERWEIGHT = 50.0;
-    public static final double NORMAL_RANGE = 18.5;
-    public static final double LOWER_BOUND_NORMAL = NORMAL_RANGE;
-    public static final double OUTER_BOUND_NORMAL = 25.0;
-    public static final int CENTIMETER_TO_METER = 100;
-    public static final double FEET_TO_METER = 3.28084;
-    public static final double INCH_TO_METRE = 39.3701;
-    public static final double INCH_TO_METER = INCH_TO_METRE;
+    private static final double LOWER_BOUND_UNDER_WEIGHT = 16.0;
+    private static final double OUT_OF_BOUND_OVERWEIGHT = 50.0;
+    private static final double NORMAL_RANGE = 18.5;
+    private static final double LOWER_BOUND_NORMAL = NORMAL_RANGE;
+    private static final double OUTER_BOUND_NORMAL = 25.0;
+    private static final int CENTIMETER_TO_METER = 100;
+    private static final double FEET_TO_METER = 3.28084;
+    private static final double INCH_TO_METRE = 39.3701;
+    private static final double INCH_TO_METER = INCH_TO_METRE;
+    private static final int THREECOMPARE = 3;
+    private static final int ZEROCOMPARE = 0;
     private static final String KILOGRAM_KEY = "Kilogram";
     private static final String POUND_KEY = "Pound";
     private static final String CENTIMETER_KEY = "Centimeter";
@@ -43,36 +43,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String UNDERWEIGHT_KEY = "Underweight";
     private static final String OVERWEIGHT_KEY = "Overweight";
     private static final String ZERO_KEY = "0";
-    private static final String SIXTY_KEY = "60";
-    private static final String ONE_SEVENTY_KEY = "170";
     private static final String DECIMAL_KEY = ".";
     private static final String WEIGHT_VALUE = "weightvalue";
     private static final String RESULT_VISIBILITY = "result_visibility";
+    private static final double POUND_TO_KG = 0.453592;
+    private static final int SIXFORCOMPARE = 6;
+    private static final int ONECOMPARE = 1;
     private final String HEIGHT_VALUE = "HeightValue";
     private final String WEIGHT_UNITS = "weight_units_value";
     private final String HEIGHT_UNITS = "height_units_value";
     private final String DISPLAY_RESULT_VALUE = "display_result_value";
     private final String NORMAL_UNDER_OVERWEIGHT_VALUE = "normal_under_overweight";
-    Boolean dotFlagWeight = false, dotFlagHeight = false;
-    ConstraintLayout weight_Left_LayoutText;
-    ConstraintLayout height_Left_Layout;
-    GridLayout gridLayout;
-    TextView weightInput;
-    TextView heightInput;
-    TextView decimalDot;
-    View includeResultLayout;
-    TextView display_ResultTextView;
-    TextView normal_under_overWeight;
-    TextView heightUnits;
-    TextView weightUnits;
-    ImageButton oneTextDelete;
-    ConstraintLayout weightInputLayout;
-    ConstraintLayout heightInputLayout;
-    TextView textAllClear;
-    Button goButton;
-    //TODO give access modifier
+    private Boolean dotFlagWeight = false, dotFlagHeight = false;
+    private ConstraintLayout weight_Left_LayoutText;
+    private ConstraintLayout height_Left_Layout;
+    private GridLayout gridLayout;
+    private TextView weightInput;
+    private TextView heightInput;
+    private TextView decimalDot;
+    private View includeResultLayout;
+    private TextView display_ResultTextView;
+    private TextView normal_under_overWeight;
+    private TextView heightUnits;
+    private TextView weightUnits;
+    private ConstraintLayout weightInputLayout;
+    private ConstraintLayout heightInputLayout;
     private Boolean flagOfWeight = true, flagOfHeight = false;
-    private Boolean reinitializeWeight = false, reinitializeHeight = false;
     private boolean colorChange = false;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -90,13 +86,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         includeResultLayout = findViewById(id.include);
         display_ResultTextView = findViewById(id.display_result);
         normal_under_overWeight = findViewById(id.normal);
-        heightUnits = findViewById(id.syntax_Syntax);
-        weightUnits = findViewById(id.weight_Syntax);
-        oneTextDelete = findViewById((id.hash));
+        heightUnits = findViewById(id.Height_Unit_representation);
+        weightUnits = findViewById(id.weight_Units);
         weightInputLayout = findViewById(id.weight_Input_layout);
         heightInputLayout = findViewById(id.height_Input_layout);
-        textAllClear = findViewById(id.AC);
-        goButton = findViewById(id.go);
 
         weightInputLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,8 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 heightInput.setTextColor(getResources().getColor(color.colorDark_grey2));
                 gridLayout.setVisibility(View.VISIBLE);
                 findViewById(id.include).setVisibility(View.GONE);
-                flagOfWeight = reinitializeWeight = true;
-                reinitializeHeight = flagOfHeight = false;
+                flagOfWeight = true;
+                flagOfHeight = false;
             }
         });
 
@@ -117,14 +110,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 weightInput.setTextColor(getResources().getColor(color.colorDark_grey2));
                 gridLayout.setVisibility(View.VISIBLE);
                 findViewById(id.include).setVisibility(View.GONE);
-                flagOfWeight = reinitializeWeight = false;
-                flagOfHeight = reinitializeHeight = true;
+                flagOfWeight = false;
+                flagOfHeight = true;
             }
         });
 
 
         final String[] weightTypeList = {KILOGRAM_KEY, POUND_KEY};
-        final Spinner weightSpinner = findViewById(id.spinner1);
+        final Spinner weightSpinner = findViewById(id.weightSpinner);
         ArrayAdapter weightAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, weightTypeList);
         weightSpinner.setAdapter(weightAdapter);
         weightSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -141,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
         final String[] heightTypeList = {CENTIMETER_KEY, METER_KEY, FEET_KEY, INCH_KEY};
         final Spinner heightSpinner = findViewById(id.heightSpinner);
         ArrayAdapter heightAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, heightTypeList);
@@ -179,8 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void methodcreated(double bmi) {
-
+    private void resultLayoutColorIndicator(double bmi) {
         if (bmi < LOWER_BOUND_NORMAL) {
             normal_under_overWeight.setText(UNDERWEIGHT_KEY);
             normal_under_overWeight.setTextColor(getResources().getColor(color.colorBlue));
@@ -190,9 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         gridLayout.setVisibility(View.GONE);
         includeResultLayout.setVisibility(View.VISIBLE);
-
     }
-
 
     private double getWeightInput(double weight, String unit) {
         switch (unit) {
@@ -200,9 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return weight;
             }
             case POUND_KEY: {
-                return weight / 0.453592;
+                return weight / POUND_TO_KG;
             }
-
         }
         return 0;
     }
@@ -220,18 +210,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case INCH_KEY: {
                 return height / INCH_TO_METER;
-
             }
         }
         return 0;
     }
-
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         weightInput.setText(savedInstanceState.getString(WEIGHT_VALUE));
         heightInput.setText(savedInstanceState.getString(HEIGHT_VALUE));
+
         if (savedInstanceState.getBoolean(RESULT_VISIBILITY)) {
             gridLayout.setVisibility(View.GONE);
             includeResultLayout.setVisibility(View.VISIBLE);
@@ -239,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             gridLayout.setVisibility(View.VISIBLE);
             includeResultLayout.setVisibility(View.GONE);
         }
+
         weightUnits.setText(savedInstanceState.getString(WEIGHT_UNITS));
         heightUnits.setText(savedInstanceState.getString(HEIGHT_UNITS));
         display_ResultTextView.setText(savedInstanceState.getString(DISPLAY_RESULT_VALUE));
@@ -267,28 +257,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     heightInput.setText("");
                 }
                 if (flagOfWeight) {
-                    if (weightTemperory.equals(SIXTY_KEY) || reinitializeWeight) {
-                        weightInput.setText(((TextView) view).getText().toString());
-                        reinitializeWeight = false;
-                    } else if (weightTemperory.length() < 6) {
+                    if (weightTemperory.length() < SIXFORCOMPARE) {
                         if (weightTemperory.contains(DECIMAL_KEY)) {
-                            if (weightTemperory.length() - weightTemperory.indexOf(DECIMAL_KEY) < 3) {
+                            if (weightTemperory.length() - weightTemperory.indexOf(DECIMAL_KEY) < THREECOMPARE) {
+
+
                                 weightInput.append(((TextView) view).getText().toString());
                             }
-                        } else if (weightTemperory.length() < 3) {
+                        } else if (weightTemperory.length() < THREECOMPARE) {
                             weightInput.append(((TextView) view).getText().toString());
                         }
                     }
                 } else if (flagOfHeight) {
-                    if (heighttemperory.equals(ONE_SEVENTY_KEY) || reinitializeHeight) {
-                        heightInput.setText(((TextView) view).getText().toString());
-                        reinitializeHeight = false;
-                    } else if (heighttemperory.length() < 6) {
+                    if (heighttemperory.length() < SIXFORCOMPARE) {
                         if (heighttemperory.contains(DECIMAL_KEY)) {
-                            if (heighttemperory.length() - heighttemperory.indexOf(DECIMAL_KEY) < 3) {
+                            if (heighttemperory.length() - heighttemperory.indexOf(DECIMAL_KEY) < THREECOMPARE) {
                                 heightInput.append(((TextView) view).getText().toString());
                             }
-                        } else if (heighttemperory.length() < 3) {
+                        } else if (heighttemperory.length() < THREECOMPARE) {
                             heightInput.append(((TextView) view).getText().toString());
                         }
                     }
@@ -302,32 +288,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Math.round(bmi_Calcualte);
                 if (bmi_Calcualte < LOWER_BOUND_UNDER_WEIGHT || bmi_Calcualte > OUT_OF_BOUND_OVERWEIGHT) {
                     Toast.makeText(getApplicationContext(), INVALID_BMI_PLEASE_CHECK_YOUR_INPUT, Toast.LENGTH_LONG).show();
-                } else if (weight == 0 && height == 0) {
+                } else if (weight == ZEROCOMPARE && height == ZEROCOMPARE) {
+
                     Toast.makeText(getApplicationContext(), INVALID_BMI_PLEASE_CHECK_YOUR_INPUT, Toast.LENGTH_LONG).show();
                 } else {
                     display_ResultTextView.setText(Double.toString(bmi_Calcualte));
                     double bmi = Double.parseDouble(display_ResultTextView.getText().toString());
-                    methodcreated(bmi);
+                    resultLayoutColorIndicator(bmi);
                 }
                 break;
             }
             case R.id.hash: {
-                if (weightTemperory.length() == 1) {
+                if (weightTemperory.length() == ONECOMPARE) {
                     weightInput.setText(ZERO_KEY);
                 }
-                if (heighttemperory.length() == 1) {
+                if (heighttemperory.length() == ONECOMPARE) {
                     heightInput.setText(ZERO_KEY);
                 }
 
-                if (Double.parseDouble(weightTemperory) != 0 && flagOfWeight) {
-                    weightInput.setText(weightTemperory.substring(0, weightTemperory.length() - 1));
+                if (Double.parseDouble(weightTemperory) != ZEROCOMPARE && flagOfWeight) {
+                    weightInput.setText(weightTemperory.substring(ZEROCOMPARE, weightTemperory.length() - ONECOMPARE));
 
-                } else if (Double.parseDouble(heighttemperory) != 0 && flagOfHeight) {
-                    heightInput.setText(heighttemperory.substring(0, heighttemperory.length() - 1));
+                } else if (Double.parseDouble(heighttemperory) != ZEROCOMPARE && flagOfHeight) {
+                    heightInput.setText(heighttemperory.substring(ZEROCOMPARE, heighttemperory.length() - ONECOMPARE));
                 }
                 break;
             }
-            case R.id.AC: {
+            case R.id.ac: {
                 if (flagOfWeight) {
                     weightInput.setText(ZERO_KEY);
                 }
@@ -353,9 +340,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        //
         super.onSaveInstanceState(outState);
         outState.putString(WEIGHT_VALUE, weightInput.getText().toString());
         outState.putString(HEIGHT_VALUE, heightInput.getText().toString());
@@ -364,6 +351,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outState.putString(DISPLAY_RESULT_VALUE, display_ResultTextView.getText().toString());
         outState.putString(NORMAL_UNDER_OVERWEIGHT_VALUE, normal_under_overWeight.getText().toString());
         outState.putBoolean(RESULT_VISIBILITY, false);
+
         if (includeResultLayout.getVisibility() == View.VISIBLE) {
             outState.putBoolean(RESULT_VISIBILITY, true);
         }

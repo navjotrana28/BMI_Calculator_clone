@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spinner_width">30dp</dimen>
+    <dimen name="bmi_View_height">24dp</dimen>
+    <dimen name="weight_textView_marginRight">4dp</dimen>
+    <dimen name="divider_weight_height_view">1dp</dimen>
+    <dimen name="paddingStart_height_Text_Field">15dp</dimen>
+    <dimen name="paddingTop_Height_unit_Layout02">1dp</dimen>
+    <dimen name="padding_height">25dp</dimen>
+    <dimen name="textSize_Weight_representation">14sp</dimen>
+    <dimen name="padding_weight_unit_representation">1dp</dimen>
+    <dimen name="paddingTop_weight_input">50dp</dimen>
+    <dimen name="paddingStart_weight_input">15dp</dimen>
+    <dimen name="padding_weight_View_01Layout">25dp</dimen>
+    <dimen name="paddingStart_weightInput_Layout01">50dp</dimen>
+    <dimen name="paddingtop_weightUnit_Layout01">22dp</dimen>
+    <dimen name="padding_height_View_layout_01">25dp</dimen>
+    <dimen name="marginend_Height_spinner_layout01">90dp</dimen>
+    <dimen name="paddingStart_heightInputLayout_Layout01">100dp</dimen>
+    <dimen name="paddingLeft_height_Input_Layout01">20dp</dimen>
+    <dimen name="paddingTop_heightInput_Layout01">22dp</dimen>
+    <dimen name="textSize_height_units_layout01">14sp</dimen>
+    <dimen name="margintop_gridLayout_layout01">50dp</dimen>
+    <dimen name="marginTop_result_layout">10dp</dimen>
+    <dimen name="mariginBottom_Result_Layout">20dp</dimen>
+    <dimen name="paddingTop_height_input_Layout02">50dp</dimen>
+    <dimen name="textSize_bmiView_layout02">18sp</dimen>
+    <dimen name="height__view1Divider_layout02">1dp</dimen>
+    <dimen name="padding_weight_View_Layout02">25dp</dimen>
+    <dimen name="textSize_weightView_layout02">15sp</dimen>
+    <dimen name="spinnerWeight_height_layout02">30dp</dimen>
+    <dimen name="textsize_weightInput_Layout02">20sp</dimen>
+    <dimen name="textsize_heightView_Layout02">15sp</dimen>
+    <dimen name="layout_marginEnd_heightSpinner_Layout02">90dp</dimen>
+    <dimen name="textSize_heightInput_Layout02">20sp</dimen>
+    <dimen name="textsize_Height_Units_layout02">14sp</dimen>
+    <dimen name="gridLayout_width_layout02">345dp</dimen>
+    <dimen name="paddingStart_bmiView_layout01">160dp</dimen>
+    <dimen name="paddingBottom_bmiView_layout01">5dp</dimen>
+    <dimen name="textView_bmiView_layout01">20sp</dimen>
+    <dimen name="textSize_weightView_Layout01">15sp</dimen>
+    <dimen name="width_weightSpinner_layout01">30dp</dimen>
+    <dimen name="height_weight_spinner_Layout01">30dp</dimen>
+    <dimen name="width_kg_layout01">215dp</dimen>
+    <dimen name="height_heightLayout01">98dp</dimen>
+    <dimen name="paddingStart_kg_layout01">100dp</dimen>
+    <dimen name="textsize_weightInput_Layout01">20sp</dimen>
+    <dimen name="paddingStart_weightUnits_layout01">40dp</dimen>
+    <dimen name="paddingtop_weightunit_Layout01">1dp</dimen>
+    <dimen name="textSize_weight_unit_Layout01">14sp</dimen>
+    <dimen name="textSize_heightView_Layout01">15sp</dimen>
+    <dimen name="textSize_heightInput_Layout01">20sp</dimen>
+    <dimen name="paddingTop_heightUnit_layout01">1dp</dimen>
+    <dimen name="height_viewDivider1_Layout01" type="dimen" format="float">0.7dp</dimen>
+    <dimen name="height_viewDivider2_Layout01" type="dimen" format="float">0.5dp</dimen>
+</resources>
